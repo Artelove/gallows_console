@@ -1,0 +1,14 @@
+C:\PROGECTS\gallows_console\gallows_console\bin\Debug\net7.0\gallows_console.exe
+C:\PROGECTS\gallows_console\gallows_console\bin\Debug\net7.0\gallows_console.deps.json
+C:\PROGECTS\gallows_console\gallows_console\bin\Debug\net7.0\gallows_console.runtimeconfig.json
+C:\PROGECTS\gallows_console\gallows_console\bin\Debug\net7.0\gallows_console.dll
+C:\PROGECTS\gallows_console\gallows_console\bin\Debug\net7.0\gallows_console.pdb
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\gallows_console.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\gallows_console.AssemblyInfoInputs.cache
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\gallows_console.AssemblyInfo.cs
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\gallows_console.csproj.CoreCompileInputs.cache
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\gallows_console.dll
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\refint\gallows_console.dll
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\gallows_console.pdb
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\gallows_console.genruntimeconfig.cache
+C:\PROGECTS\gallows_console\gallows_console\obj\Debug\net7.0\ref\gallows_console.dll
