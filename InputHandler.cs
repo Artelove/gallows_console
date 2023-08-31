@@ -23,7 +23,7 @@ public class InputHandler
         if(AcceptableCharacters.Contains(letter) == false)
                 return new Message(Message.MessageType.ErrorMessage,
                     $"An unknown character is entered, use only the following set of characters:" +
-                    $"\n + {AcceptableCharacters}");
+                    $"\n {AcceptableCharacters}");
         foreach (var character in Letters)
         {
             if (letter == character)
@@ -78,6 +78,6 @@ public class Message
 
     public override string ToString()
     {
-        return Type + "\n" + Value;
+        return "\n" + Type + "\n" + Value;
     }
 }
