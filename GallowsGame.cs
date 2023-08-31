@@ -2,38 +2,56 @@
 
 using gallows_console;
 
-Word word = new Word(GetRandomWordFromList());
-InputHandler inputHandler = new InputHandler(word);
-int RemainingAttempts = word.Lenght+3+(int)Math.Sqrt(word.Lenght);
-string GetGameState() => $"\n Used letters: {inputHandler.GetOpenedLetters()}" +
-                           $"\n Word: {word.GetCurrentWordString()}" +
-                           $"\n Remaining attempts = {RemainingAttempts}";
-inputHandler.Step += GameStepHandler;
-Console.WriteLine(GetGameState());
+
+
+Word word;
+InputHandler inputHandler;
+int RemainingAttempts = 0;
 void GameStepHandler(bool stepState)
 {
     if (stepState == false)
         RemainingAttempts--;
+    
 }
 
-while (word.IsWordCompletelyOpen() == false)
+while (true)
 {
-    if (RemainingAttempts == 0)
+    StartGame();
+    if (RestartGame() == false)
     {
-        Console.WriteLine("Sorry your attempts is ended. " +
-                          "\n You are lose!");
-        Console.WriteLine($"Search word is: {word.GetFullWord()}");
-        Console.ReadLine();
-    }
-    Message message = inputHandler.HandleUserInputCharacter(Console.ReadLine()); 
-    switch (message.Type)
-    {
-        case Message.MessageType.ErrorMessage: Console.WriteLine(message); break;
-        case Message.MessageType.InfoMessage: Console.WriteLine(message + GetGameState()); break;
+        return 0;
     }
 }
-Console.WriteLine("\n\nYou are winner!!!");
-Console.ReadLine();
+void StartGame()
+{
+    word = new Word(GetRandomWordFromList());
+    inputHandler = new InputHandler(word);
+    RemainingAttempts = word.Lenght+3+(int)Math.Sqrt(word.Lenght);
+    string GetGameState() => $"\n Used letters: {inputHandler.GetOpenedLetters()}" +
+                             $"\n Word: {word.GetCurrentWordString()}" +
+                             $"\n Remaining attempts = {RemainingAttempts}";
+    inputHandler.Step += GameStepHandler;
+    Console.WriteLine(GetGameState());
+    
+    while (word.IsWordCompletelyOpen() == false)
+    {
+        if (RemainingAttempts == 0)
+        {
+            Console.WriteLine("Sorry your attempts is ended. " +
+                              "\n You are lose!");
+            Console.WriteLine($"Search word is: {word.GetFullWord()}");
+            return;
+        }
+        Message message = inputHandler.HandleUserInputCharacter(Console.ReadLine()); 
+        switch (message.Type)
+        {
+            case Message.MessageType.ErrorMessage: Console.WriteLine(message); break;
+            case Message.MessageType.InfoMessage: Console.WriteLine(message + GetGameState()); break;
+        }
+    }
+    Console.WriteLine("\n\nYou are winner!!!");
+}
+
 
 string GetRandomWordFromList()
 {
@@ -46,4 +64,21 @@ string GetRandomWordFromList()
 
     return word;
 }
-return 0;
+
+bool RestartGame()
+{
+    Console.WriteLine("Do you want to restart game? [y]/[n]");
+    string answer = Console.ReadLine();
+    while (answer != "y" && answer != "n")
+    {
+        Console.WriteLine("Need choose [y] or [n] !");
+        answer = Console.ReadLine();
+    }
+
+    if (answer == "y")
+    {
+        return true;
+    }
+
+    return false;
+}
