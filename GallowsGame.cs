@@ -4,7 +4,7 @@ using gallows_console;
 
 Word word = new Word(GetRandomWordFromList());
 InputHandler inputHandler = new InputHandler(word);
-int RemainingAttempts = word.Lenght+(int)Math.Sqrt(word.Lenght);
+int RemainingAttempts = word.Lenght+3+(int)Math.Sqrt(word.Lenght);
 string GetGameState() => $"\n Used letters: {inputHandler.GetOpenedLetters()}" +
                            $"\n Word: {word.GetCurrentWordString()}" +
                            $"\n Remaining attempts = {RemainingAttempts}";
@@ -22,7 +22,8 @@ while (word.IsWordCompletelyOpen() == false)
     {
         Console.WriteLine("Sorry your attempts is ended. " +
                           "\n You are lose!");
-        return 0;
+        Console.WriteLine($"Search word is: {word.GetFullWord()}");
+        Console.ReadLine();
     }
     Message message = inputHandler.HandleUserInputCharacter(Console.ReadLine()); 
     switch (message.Type)
@@ -32,7 +33,7 @@ while (word.IsWordCompletelyOpen() == false)
     }
 }
 Console.WriteLine("\n\nYou are winner!!!");
-
+Console.ReadLine();
 
 string GetRandomWordFromList()
 {

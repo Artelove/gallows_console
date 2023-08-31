@@ -5,7 +5,6 @@ public class Word
     public int Lenght { get; private set; }
     private readonly List<Letter> _word;
 
-
     public Word(string word)
     {
         _word = new List<Letter>();
@@ -51,6 +50,16 @@ public class Word
             str += letter;
         }
 
+        return str;
+    }
+
+    public string GetFullWord()
+    {
+        string str = "";
+        foreach (Letter letter in _word)
+        {
+            str += letter.Character;
+        }
         return str;
     }
 }
